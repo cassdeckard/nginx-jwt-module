@@ -1,11 +1,11 @@
 [github-license-url]: /blob/master/LICENSE
-[action-docker-url]: https://github.com/max-lt/nginx-jwt-module/actions/workflows/docker.yml
-[github-container-url]: https://github.com/max-lt/nginx-jwt-module/pkgs/container/nginx-jwt-module
+[action-docker-url]: https://github.com/cassdeckard/nginx-jwt-module/actions/workflows/docker.yml
+[github-container-url]: https://github.com/cassdeckard/nginx-jwt-module/pkgs/container/nginx-jwt-module
 
 # Nginx jwt auth module
 [![License](https://img.shields.io/github/license/maxx-t/nginx-jwt-module.svg)][github-license-url]
-[![Build Status](https://github.com/max-lt/nginx-jwt-module/actions/workflows/docker.yml/badge.svg)][action-docker-url]
-[![Build Status](https://ghcr-badge.deta.dev/max-lt/nginx-jwt-module/size)][action-docker-url]
+[![Build Status](https://github.com/cassdeckard/nginx-jwt-module/actions/workflows/docker.yml/badge.svg)][action-docker-url]
+[![Build Status](https://ghcr-badge.deta.dev/cassdeckard/nginx-jwt-module/size)][action-docker-url]
 
 This is an NGINX module to check for a valid JWT.
 
@@ -141,12 +141,12 @@ The ngx_http_auth_jwt_module module supports embedded variables:
 Image is generated with Github Actions (see [nginx-jwt-module:latest][github-container-url])
 
 ```
-docker pull ghcr.io/max-lt/nginx-jwt-module:latest
+docker pull ghcr.io/cassdeckard/nginx-jwt-module:latest
 ```
 
 #### Simply create your image from Github's generated one
 ```dockerfile
-FROM ghcr.io/max-lt/nginx-jwt-module:latest
+FROM ghcr.io/cassdeckard/nginx-jwt-module:latest
 
 # Copy you nginx conf
 # Don't forget to include this module in your configuration
