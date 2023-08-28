@@ -181,10 +181,17 @@ static ngx_int_t ngx_http_auth_jwt_variable_handler(ngx_http_request_t *r)
     return NGX_DECLINED;
   }
 
+  // Parse the jwt
+  if (jwt_decode(&jwt, (char *)jwt_data))
+  {
+    ngx_log_error(NGX_LOG_WARN, r->connection->log, 0, "JWT: failed to parse jwt [%s]", jwt_data);
+    return NGX_DECLINED;
+  }
+
   // Validate the jwt
   if (jwt_decode(&jwt, (char *)jwt_data, conf->jwt_key.data, conf->jwt_key.len))
   {
-    ngx_log_error(NGX_LOG_WARN, r->connection->log, 0, "JWT: failed to parse jwt");
+    ngx_log_error(NGX_LOG_WARN, r->connection->log, 0, "JWT: failed to validate jwt [%s] with key of length %d", jwt_data, conf->jwt_key.len);
     return NGX_DECLINED;
   }
 
