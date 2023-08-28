@@ -182,7 +182,7 @@ static ngx_int_t ngx_http_auth_jwt_variable_handler(ngx_http_request_t *r)
   }
 
   // Parse the jwt
-  if (jwt_decode(&jwt, (char *)jwt_data))
+  if (jwt_decode(&jwt, (char *)jwt_data, NULL, 0))
   {
     ngx_log_error(NGX_LOG_WARN, r->connection->log, 0, "JWT: failed to parse jwt [%s]", jwt_data);
     return NGX_DECLINED;
